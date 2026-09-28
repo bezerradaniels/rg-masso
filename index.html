@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+<script src="./image-slot.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#FBF6EE;color:#4A4A48;font-family:Montserrat,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#2F4A2B}
+a:hover{color:#587352}
+:focus-visible{outline:2px solid #2F4A2B;outline-offset:3px;border-radius:6px}
+</style>
+</helmet>
+
+<svg aria-hidden="true" width="0" height="0" style="position:absolute;width:0;height:0">
+  <defs>
+    <filter id="wc"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="7"></feDisplacementMap></filter>
+    <path id="lf" d="M0 0 C8 -9 26 -10 40 0 C26 10 8 9 0 0Z"></path>
+    <g id="sprig">
+      <path d="M100 320 C95 220 110 120 130 0" fill="none" stroke-width="2"></path>
+      <use href="#lf" transform="translate(99 282) rotate(-160) scale(1.35)"></use>
+      <use href="#lf" transform="translate(100 252) rotate(-22) scale(1.3)"></use>
+      <use href="#lf" transform="translate(101 212) rotate(-155) scale(1.2)"></use>
+      <use href="#lf" transform="translate(103 182) rotate(-28) scale(1.2)"></use>
+      <use href="#lf" transform="translate(106 142) rotate(-150) scale(1.1)"></use>
+      <use href="#lf" transform="translate(110 112) rotate(-34) scale(1.05)"></use>
+      <use href="#lf" transform="translate(115 76) rotate(-145) scale(0.95)"></use>
+      <use href="#lf" transform="translate(120 46) rotate(-40) scale(0.85)"></use>
+      <use href="#lf" transform="translate(126 18) rotate(-100) scale(0.7)"></use>
+    </g>
+    <g id="euca">
+      <path d="M60 320 C70 230 50 130 80 0" fill="none" stroke-width="2"></path>
+      <ellipse cx="44" cy="292" rx="19" ry="15"></ellipse>
+      <ellipse cx="80" cy="266" rx="18" ry="14"></ellipse>
+      <ellipse cx="46" cy="226" rx="17" ry="13"></ellipse>
+      <ellipse cx="76" cy="200" rx="16" ry="13"></ellipse>
+      <ellipse cx="48" cy="160" rx="15" ry="12"></ellipse>
+      <ellipse cx="76" cy="134" rx="14" ry="11"></ellipse>
+      <ellipse cx="58" cy="94" rx="13" ry="10"></ellipse>
+      <ellipse cx="84" cy="70" rx="12" ry="9"></ellipse>
+      <ellipse cx="68" cy="38" rx="10" ry="8"></ellipse>
+      <ellipse cx="84" cy="14" rx="8" ry="6"></ellipse>
+    </g>
+    <g id="fern">
+      <path d="M20 300 C60 220 110 120 190 20" fill="none"></path>
+      <use href="#lf" transform="translate(40 262) rotate(-150) scale(1.1 0.45)"></use>
+      <use href="#lf" transform="translate(44 256) rotate(-20) scale(1.1 0.45)"></use>
+      <use href="#lf" transform="translate(66 222) rotate(-155) scale(1.1 0.45)"></use>
+      <use href="#lf" transform="translate(70 214) rotate(-25) scale(1.1 0.45)"></use>
+      <use href="#lf" transform="translate(92 182) rotate(-158) scale(1 0.45)"></use>
+      <use href="#lf" transform="translate(97 174) rotate(-28) scale(1 0.45)"></use>
+      <use href="#lf" transform="translate(120 142) rotate(-160) scale(0.9 0.45)"></use>
+      <use href="#lf" transform="translate(125 134) rotate(-32) scale(0.9 0.45)"></use>
+      <use href="#lf" transform="translate(148 100) rotate(-162) scale(0.8 0.45)"></use>
+      <use href="#lf" transform="translate(153 93) rotate(-36) scale(0.8 0.45)"></use>
+      <use href="#lf" transform="translate(172 62) rotate(-165) scale(0.65 0.45)"></use>
+      <use href="#lf" transform="translate(177 55) rotate(-40) scale(0.65 0.45)"></use>
+    </g>
+    <g id="big">
+      <path d="M0 0 C40 -74 170 -84 230 0 C170 84 40 74 0 0Z"></path>
+      <path d="M0 0 L230 0 M50 0 L80 -38 M50 0 L80 38 M100 0 L135 -44 M100 0 L135 44 M150 0 L180 -36 M150 0 L180 36" fill="none"></path>
+    </g>
+    <g id="wa"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path><path d="M9.2 7.6c-.4 0-.9.3-1 .9-.3 1.3.3 2.9 1.6 4.3 1.4 1.5 3.1 2.4 4.5 2.1.6-.1.9-.6.9-1l-.1-.6-1.7-.8-.9.9c-1-.4-2.1-1.4-2.6-2.5l.8-.9-.7-1.8-.8-.4z" fill="currentColor"></path></g>
+  </defs>
+</svg>
+
+<div style="min-height:100vh;background:#FBF6EE;overflow-x:clip">
+
+<!-- 3.1 HEADER -->
+<header data-screen-label="Header" style="position:sticky;top:0;z-index:40;background:#FBF6EE;box-shadow:{{ headerShadow }};transition:box-shadow .3s">
+  <div style="max-width:1240px;margin:0 auto;padding:14px clamp(18px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:16px">
+    <a href="#topo" aria-label="RG Massoterapia, início" style="display:flex;align-items:center;gap:12px;text-decoration:none">
+      <span style="width:46px;height:46px;border-radius:50%;border:1.5px solid #B8923A;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:inset 0 0 0 3px #FBF6EE, inset 0 0 0 4px rgba(184,146,58,.45)"><span style="font-family:'Playfair Display',serif;font-style:italic;font-size:19px;color:#B8923A;letter-spacing:-.5px">RG</span></span>
+      <span style="display:flex;flex-direction:column;line-height:1.1"><span style="font-family:'Playfair Display',serif;font-style:italic;font-size:20px;color:#2F4A2B">RG Massoterapia</span><span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#4A4A48;margin-top:3px">Raiane Guimarães</span></span>
+    </a>
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Principal" style="display:flex;align-items:center;gap:34px">
+        <a href="#massagens" style="font-size:14px;text-decoration:none;color:#4A4A48">Massagens</a>
+        <a href="#sobre" style="font-size:14px;text-decoration:none;color:#4A4A48">Sobre</a>
+        <a href="#contato" style="font-size:14px;text-decoration:none;color:#4A4A48">Contato</a>
+      </nav>
+    </sc-if>
+    <div style="display:flex;align-items:center;gap:8px">
+      <a href="{{ waLink }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;background:#587352;color:#FBF6EE;text-decoration:none;border-radius:999px;padding:11px 18px;font-size:14px;font-weight:500;white-space:nowrap" style-hover="background:#2F4A2B;color:#FBF6EE">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"></use></svg>
+        <span>{{ headerCta }}</span>
+      </a>
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+        <button type="button" onClick="{{ toggleMenu }}" aria-label="Abrir menu" aria-expanded="{{ menuOpen }}" style="width:44px;height:44px;border:none;background:transparent;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;padding:0">
+          <span style="width:20px;height:1.5px;background:#2F4A2B"></span><span style="width:20px;height:1.5px;background:#2F4A2B"></span><span style="width:14px;height:1.5px;background:#2F4A2B;margin-left:6px"></span>
+        </button>
+      </sc-if>
+    </div>
+  </div>
+  <sc-if value="{{ menuVisible }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Menu mobile" style="border-top:1px solid rgba(184,146,58,.3);padding:8px 20px 20px;display:flex;flex-direction:column;background:#FBF6EE">
+      <a href="#massagens" onClick="{{ closeMenu }}" style="padding:14px 4px;font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:#2F4A2B;text-decoration:none;border-bottom:1px solid rgba(74,74,72,.1)">Massagens</a>
+      <a href="#sobre" onClick="{{ closeMenu }}" style="padding:14px 4px;font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:#2F4A2B;text-decoration:none;border-bottom:1px solid rgba(74,74,72,.1)">Sobre</a>
+      <a href="#contato" onClick="{{ closeMenu }}" style="padding:14px 4px;font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:#2F4A2B;text-decoration:none">Contato</a>
+    </nav>
+  </sc-if>
+</header>
+
+<!-- 3.2 HERO -->
+<section id="topo" data-screen-label="Hero" style="position:relative;overflow:hidden">
+  <svg aria-hidden="true" viewBox="-40 -120 300 300" style="position:absolute;right:-6%;top:6%;width:min(60vw,720px);opacity:.07;pointer-events:none;transform:rotate(-30deg)"><use href="#big" fill="#2F4A2B" stroke="#FBF6EE" stroke-width="2"></use></svg>
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+    <svg aria-hidden="true" viewBox="0 0 200 320" style="position:absolute;left:-60px;bottom:-40px;width:200px;pointer-events:none;transform:rotate(18deg)"><use href="#fern" fill="none" stroke="#B8923A" stroke-width="1.2"></use></svg>
+  </sc-if>
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(36px,7vw,96px) clamp(20px,5vw,48px) clamp(64px,8vw,112px);display:flex;flex-wrap:wrap;align-items:center;gap:clamp(48px,6vw,88px);position:relative">
+    <div style="flex:1 1 380px;min-width:0;max-width:560px">
+      <p style="margin:0 0 22px;display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#587352;font-weight:500"><span style="width:28px;height:1px;background:#B8923A"></span>Massoterapia em Bom Jesus da Lapa</p>
+      <h1 style="margin:0;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#2F4A2B;font-size:clamp(44px,6.4vw,84px);line-height:1.02;letter-spacing:-.02em;text-wrap:balance">Seu corpo merece esse cuidado</h1>
+      <p style="margin:26px 0 0;font-size:clamp(16px,1.4vw,18px);font-weight:300;line-height:1.7;max-width:46ch;text-wrap:pretty">Massagens relaxantes, terapêuticas e modeladoras em um espaço pensado para você desacelerar.</p>
+      <div style="margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;gap:20px">
+        <a href="{{ waLink }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#587352;color:#FBF6EE;text-decoration:none;border-radius:999px;padding:17px 30px;font-size:15px;font-weight:500;min-height:52px" style-hover="background:#2F4A2B;color:#FBF6EE">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"></use></svg>Agendar minha sessão</a>
+        <a href="#massagens" style="font-size:14px;color:#2F4A2B;text-underline-offset:5px;text-decoration-color:#B8923A">Ver massagens</a>
+      </div>
+    </div>
+    <div style="flex:1 1 340px;min-width:0;display:flex;justify-content:center">
+      <div style="position:relative;width:min(100%,420px);margin:40px 30px 0">
+        <svg aria-hidden="true" viewBox="0 0 200 320" style="position:absolute;right:-22%;top:-12%;width:58%;pointer-events:none;transform:rotate(22deg);filter:url(#wc)"><use href="#sprig" fill="#8FA886" stroke="#8FA886" opacity=".75"></use></svg>
+        <svg aria-hidden="true" viewBox="0 0 120 320" style="position:absolute;left:-18%;bottom:-6%;width:34%;pointer-events:none;transform:rotate(-24deg);filter:url(#wc)"><use href="#euca" fill="#A9BCA0" stroke="#8FA886" opacity=".8"></use></svg>
+        <div style="position:relative;aspect-ratio:5/7;border-radius:50% 50% 26px 26px / 35.7% 35.7% 26px 26px;overflow:hidden;background:#F3DFCB">
+          <image-slot id="hero-foto" shape="rect" src="src/img/images/WhatsApp%20Image%202026-09-25%20at%2013.54.43.jpeg" placeholder="Foto de massagem (hero)"></image-slot>
+        </div>
+        <svg aria-hidden="true" viewBox="-44 -44 588 788" style="position:absolute;left:-8.8%;top:-6.29%;width:117.6%;height:112.57%;overflow:visible;pointer-events:none">
+          <path id="arcHero" d="M -26 250 A 276 276 0 0 1 526 250" fill="none"></path>
+          <text style="font-family:Montserrat,sans-serif;font-size:19px;letter-spacing:7px;font-weight:500" fill="#2F4A2B"><textPath href="#arcHero" startOffset="6%">VOCÊ MERECE O MELHOR</textPath></text>
+        </svg>
+        <svg aria-hidden="true" viewBox="0 0 200 320" style="position:absolute;right:-14%;bottom:8%;width:40%;pointer-events:none;transform:rotate(-150deg)"><use href="#fern" fill="none" stroke="#B8923A" stroke-width="1.4"></use></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3.3 QUIZ -->
+<section data-screen-label="Quiz sintomas" style="position:relative;overflow:hidden;padding:clamp(72px,9vw,120px) 0;border-top:1px solid rgba(184,146,58,.25)">
+  <svg aria-hidden="true" viewBox="0 0 200 320" style="position:absolute;left:-40px;top:-30px;width:clamp(120px,16vw,210px);pointer-events:none;transform:rotate(200deg)"><use href="#fern" fill="none" stroke="#B8923A" stroke-width="1.2"></use></svg>
+  <svg aria-hidden="true" viewBox="-10 -90 250 180" style="position:absolute;right:-60px;bottom:-20px;width:clamp(160px,22vw,300px);pointer-events:none;transform:rotate(-120deg)"><use href="#big" fill="none" stroke="#B8923A" stroke-width="1.2"></use></svg>
+  <div style="max-width:880px;margin:0 auto;padding:0 clamp(20px,5vw,48px);text-align:center;position:relative">
+    <p style="margin:0 0 14px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#587352;font-weight:500">Marque o que você sente</p>
+    <h2 style="margin:0;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#2F4A2B;font-size:clamp(34px,4.6vw,56px);line-height:1.1;text-wrap:balance">Você tem algum desses sintomas?</h2>
+    <div role="group" aria-label="Sintomas" style="margin:44px auto 0;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:760px">
+      <sc-for list="{{ chips }}" as="c" hint-placeholder-count="8">
+        <button type="button" onClick="{{ c.toggle }}" aria-pressed="{{ c.on }}" style="display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 22px;border-radius:999px;border:1.5px solid {{ c.border }};background:{{ c.bg }};color:{{ c.fg }};font-family:Montserrat,sans-serif;font-size:15px;cursor:pointer;transition:all .2s">
+          <span style="width:16px;height:16px;border-radius:50%;border:1.5px solid {{ c.dotBorder }};background:{{ c.dot }};display:flex;align-items:center;justify-content:center;font-size:10px;line-height:1;color:#587352">{{ c.check }}</span>{{ c.label }}</button>
+      </sc-for>
+    </div>
+    <div style="margin:40px auto 0;min-height:132px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px">
+      <sc-if value="{{ hasSel }}" hint-placeholder-val="{{ false }}">
+        <p aria-live="polite" style="margin:0;font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(20px,2.2vw,26px);color:#2F4A2B;max-width:34ch;line-height:1.35;text-wrap:balance">Se a resposta foi sim para 1 ou mais, uma sessão pode te ajudar.</p>
+        <a href="{{ quizLink }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#587352;color:#FBF6EE;text-decoration:none;border-radius:999px;padding:16px 28px;font-size:15px;font-weight:500;min-height:52px" style-hover="background:#2F4A2B;color:#FBF6EE"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"></use></svg>Falar com a Raiane</a>
+        <span style="font-size:13px;color:#4A4A48;font-weight:300">{{ selSummary }}</span>
+      </sc-if>
+      <sc-if value="{{ noSel }}" hint-placeholder-val="{{ true }}">
+        <p style="margin:0;font-size:15px;font-weight:300;color:#4A4A48;max-width:44ch;line-height:1.6">Toque nos sintomas que fazem parte da sua rotina.</p>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<!-- 3.4 MASSAGENS -->
+<section id="massagens" data-screen-label="Massagens" style="position:relative;overflow:hidden;background:#F3DFCB;padding:clamp(72px,9vw,128px) 0 clamp(88px,10vw,150px)">
+  <svg aria-hidden="true" viewBox="0 0 200 320" style="position:absolute;right:-50px;top:-60px;width:clamp(130px,16vw,230px);pointer-events:none;transform:rotate(155deg);filter:url(#wc)"><use href="#sprig" fill="#8FA886" stroke="#8FA886" opacity=".6"></use></svg>
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px);position:relative">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 48px;margin-bottom:clamp(40px,5vw,64px)">
+      <h2 style="margin:0;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#2F4A2B;font-size:clamp(36px,4.8vw,60px);line-height:1.05;max-width:14ch">Massagens &amp; cuidados</h2>
+      <p style="margin:0;max-width:40ch;font-weight:300;line-height:1.7;font-size:16px">Cada sessão é adaptada ao que o seu corpo pede naquele dia.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:{{ massagensCols }};gap:clamp(28px,3vw,40px) clamp(20px,2.4vw,32px);align-items:start">
+      <sc-for list="{{ massagens }}" as="m" hint-placeholder-count="5">
+        <article style="display:flex;flex-direction:column;grid-column:{{ m.col }};margin-top:{{ m.offset }}">
+          <div style="aspect-ratio:{{ m.ratio }};border-radius:{{ m.radius }};overflow:hidden;background:#FBF6EE">
+            <image-slot id="{{ m.slot }}" shape="rect" src="{{ m.src }}" placeholder="{{ m.ph }}"></image-slot>
+          </div>
+          <div style="padding:22px 4px 0">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+              <h3 style="margin:0;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#2F4A2B;font-size:28px;line-height:1.15">{{ m.nome }}</h3>
+              <span style="font-size:12px;letter-spacing:.12em;color:#587352;white-space:nowrap;font-weight:500">{{ m.dur }}</span>
+            </div>
+            <p style="margin:10px 0 16px;font-size:15px;font-weight:300;line-height:1.65;text-wrap:pretty">{{ m.desc }}</p>
+            <a href="{{ m.link }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:#2F4A2B;text-decoration:none;border-bottom:1px solid #B8923A;padding-bottom:3px">Quero essa <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- 3.6 ESPAÇO -->
+<section data-screen-label="O espaço" style="position:relative;overflow:hidden;padding:clamp(72px,9vw,128px) 0">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(16px,2vw,24px)">
+    <div style="grid-row:span 2;min-height:clamp(340px,44vw,600px);border-radius:28px;overflow:hidden;background:#F3DFCB;position:relative">
+      <image-slot id="espaco-1" shape="rect" src="src/img/images/espa%C3%A7o-rg-massoterapia%202.jpeg" placeholder="Sala: maca com manta clara"></image-slot>
+    </div>
+    <div style="display:flex;flex-direction:column;justify-content:center;gap:18px;padding:clamp(8px,2vw,24px)">
+      <p style="margin:0;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#587352;font-weight:500">O espaço</p>
+      <h2 style="margin:0;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#2F4A2B;font-size:clamp(32px,3.8vw,48px);line-height:1.12;text-wrap:balance">Um cantinho pensado para você desacelerar.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,24px)">
+      <div style="aspect-ratio:4/5;border-radius:999px 999px 20px 20px;overflow:hidden;background:#F3DFCB"><image-slot id="espaco-2" shape="rect" src="src/img/images/espa%C3%A7o-rg-massoterapia.jpeg" placeholder="Plantas"></image-slot></div>
+      <div style="aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:#F3DFCB;margin-top:32px"><image-slot id="espaco-3" shape="rect" src="src/img/images/ventosaterapia%202.jpeg" placeholder="Sala de atendimento"></image-slot></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3.7 SOBRE -->
+<section id="sobre" data-screen-label="Sobre" style="position:relative;overflow:hidden;background:#F3DFCB;padding:clamp(72px,9vw,128px) 0">
+  <svg aria-hidden="true" viewBox="0 0 120 320" style="position:absolute;left:-30px;top:-40px;width:clamp(80px,9vw,130px);pointer-events:none;transform:rotate(170deg);filter:url(#wc)"><use href="#euca" fill="#A9BCA0" stroke="#8FA886" opacity=".7"></use></svg>
+  <div style="max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,48px);display:flex;flex-wrap:wrap;align-items:center;gap:clamp(48px,7vw,96px);position:relative">
+    <div style="flex:0 1 400px;min-width:0;margin:0 auto;position:relative;padding:0 24px">
+      <div style="aspect-ratio:4/5;border-radius:999px;overflow:hidden;background:#FBF6EE;max-width:360px;margin:0 auto">
+        <image-slot id="raiane-foto" shape="rect" src="src/img/images/rg%20massoterapia-perfil.jpeg" placeholder="Retrato da Raiane"></image-slot>
+      </div>
+      <svg aria-hidden="true" viewBox="0 0 200 320" style="position:absolute;left:-6px;bottom:-24px;width:46%;pointer-events:none;transform:rotate(-20deg)"><use href="#sprig" fill="none" stroke="#B8923A" stroke-width="1.3"></use></svg>
+    </div>
+    <div style="flex:1 1 400px;min-width:0">
+      <h2 style="margin:0;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#2F4A2B;font-size:clamp(36px,4.6vw,58px);line-height:1.05">Prazer, eu sou a Raiane</h2>
+      <div style="margin-top:26px;display:flex;flex-direction:column;gap:16px;max-width:60ch;font-size:16px;font-weight:300;line-height:1.75;text-wrap:pretty">
+        <p style="margin:0">Sou massoterapeuta aqui em Bom Jesus da Lapa. Comecei cuidando de pessoas próximas e descobri no toque a forma mais bonita de ajudar alguém a se sentir bem no próprio corpo.</p>
+        <p style="margin:0">Me formei em [curso/instituição] e sigo me especializando em técnicas relaxantes, terapêuticas e modeladoras. Cada atendimento começa com uma conversa, porque cada corpo conta uma história.</p>
+      </div>
+      <div style="margin-top:30px;display:flex;flex-wrap:wrap;gap:10px">
+        <span style="border:1px solid rgba(47,74,43,.35);border-radius:999px;padding:9px 16px;font-size:13px;color:#2F4A2B">Massoterapia · [instituição]</span>
+        <span style="border:1px solid rgba(47,74,43,.35);border-radius:999px;padding:9px 16px;font-size:13px;color:#2F4A2B">Drenagem linfática</span>
+        <span style="border:1px solid rgba(47,74,43,.35);border-radius:999px;padding:9px 16px;font-size:13px;color:#2F4A2B">Ventosaterapia</span>
+        <span style="border:1px solid rgba(47,74,43,.35);border-radius:999px;padding:9px 16px;font-size:13px;color:#2F4A2B">Liberação miofascial</span>
+      </div>
+      <div style="margin-top:36px;display:flex;align-items:center;gap:16px">
+        <span style="width:64px;height:64px;border-radius:50%;border:1.5px solid #B8923A;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 4px #F3DFCB, inset 0 0 0 5px rgba(184,146,58,.5)"><span style="font-family:'Playfair Display',serif;font-style:italic;font-size:26px;color:#B8923A">RG</span></span>
+        <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:#2F4A2B">Raiane Guimarães</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3.8 COMO FUNCIONA -->
+<section data-screen-label="Como funciona" style="position:relative;overflow:hidden;padding:clamp(72px,9vw,128px) 0">
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
+    <h2 style="margin:0 auto;text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#2F4A2B;font-size:clamp(34px,4.4vw,54px);line-height:1.1;max-width:18ch;text-wrap:balance">Como funciona a primeira sessão</h2>
+    <div style="position:relative;margin-top:clamp(48px,6vw,80px)">
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+        <svg aria-hidden="true" viewBox="0 0 1000 80" preserveAspectRatio="none" style="position:absolute;left:12%;right:12%;top:0;width:76%;height:72px;pointer-events:none">
+          <path d="M0 36 C120 0 220 70 333 36 S 550 0 666 36 S 880 70 1000 36" fill="none" stroke="#B8923A" stroke-width="1.2" vector-effect="non-scaling-stroke"></path>
+        </svg>
+        <svg aria-hidden="true" viewBox="0 0 1000 80" style="position:absolute;left:12%;top:0;width:76%;height:72px;pointer-events:none" preserveAspectRatio="none">
+          <use href="#lf" transform="translate(170 36) rotate(-40) scale(.9 .5)" fill="#6E8A68"></use>
+          <use href="#lf" transform="translate(500 20) rotate(-150) scale(.9 .5)" fill="#6E8A68"></use>
+          <use href="#lf" transform="translate(830 50) rotate(-30) scale(.9 .5)" fill="#6E8A68"></use>
+        </svg>
+      </sc-if>
+      <ol style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:clamp(36px,3vw,40px) 24px;position:relative">
+        <sc-for list="{{ passos }}" as="p" hint-placeholder-count="4">
+          <li style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+            <span style="width:72px;height:72px;border-radius:50%;background:#FBF6EE;border:1px solid #B8923A;display:flex;align-items:center;justify-content:center;color:#587352">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{ p.icon }}"></path></svg>
+            </span>
+            <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:#B8923A">{{ p.n }}</span>
+            <span style="font-size:16px;line-height:1.5;color:#2F4A2B;max-width:22ch;font-weight:400">{{ p.t }}</span>
+          </li>
+        </sc-for>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 3.9 DEPOIMENTOS -->
+<section data-screen-label="Depoimentos" style="position:relative;overflow:hidden;background:#F3DFCB;padding:clamp(72px,9vw,128px) 0">
+  <svg aria-hidden="true" viewBox="0 0 200 320" style="position:absolute;right:-40px;bottom:-50px;width:clamp(120px,15vw,210px);pointer-events:none;transform:rotate(-20deg);filter:url(#wc)"><use href="#sprig" fill="#8FA886" stroke="#8FA886" opacity=".55"></use></svg>
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,48px);position:relative">
+    <h2 style="margin:0 0 clamp(40px,5vw,64px);font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#2F4A2B;font-size:clamp(34px,4.4vw,54px);line-height:1.1">Quem já passou por aqui</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(32px,4vw,56px)">
+      <sc-for list="{{ depoimentos }}" as="d" hint-placeholder-count="3">
+        <figure style="margin:0;display:flex;flex-direction:column;gap:14px;padding-top:{{ d.pad }}">
+          <span aria-hidden="true" style="font-family:'Playfair Display',serif;font-style:italic;font-size:96px;line-height:.6;color:#B8923A;height:44px">“</span>
+          <blockquote style="margin:0;font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(19px,1.7vw,22px);line-height:1.5;color:#2F4A2B;text-wrap:pretty">{{ d.q }}</blockquote>
+          <figcaption style="font-size:14px;line-height:1.5"><strong style="font-weight:500;color:#2F4A2B">{{ d.nome }}</strong> · <span style="font-weight:300">{{ d.m }}</span></figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- 3.10 FAQ -->
+<section data-screen-label="FAQ" style="position:relative;overflow:hidden;padding:clamp(72px,9vw,128px) 0">
+  <div style="max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,48px);display:flex;flex-wrap:wrap;gap:clamp(32px,6vw,96px)">
+    <div style="flex:1 1 280px;min-width:0">
+      <h2 style="margin:0;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#2F4A2B;font-size:clamp(34px,4.4vw,54px);line-height:1.08;max-width:10ch">Perguntas frequentes</h2>
+      <p style="margin:20px 0 0;font-size:15px;font-weight:300;line-height:1.7;max-width:32ch">Ficou alguma dúvida? <a href="{{ waLink }}" target="_blank" rel="noopener" style="color:#2F4A2B;text-decoration-color:#B8923A;text-underline-offset:4px">Me chama no WhatsApp</a>.</p>
+    </div>
+    <div style="flex:2 1 440px;min-width:0;border-top:1px solid rgba(47,74,43,.2)">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="6">
+        <div style="border-bottom:1px solid rgba(47,74,43,.2)">
+          <button type="button" onClick="{{ f.toggle }}" aria-expanded="{{ f.open }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;background:none;border:none;padding:22px 2px;min-height:64px;cursor:pointer;text-align:left;font-family:Montserrat,sans-serif;font-size:16px;font-weight:500;color:#2F4A2B">
+            <span>{{ f.q }}</span>
+            <span aria-hidden="true" style="flex-shrink:0;width:32px;height:32px;border-radius:50%;border:1px solid rgba(47,74,43,.3);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:300;transform:rotate({{ f.rot }});transition:transform .25s">+</span>
+          </button>
+          <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0;padding:0 48px 24px 2px;font-size:15px;font-weight:300;line-height:1.7;max-width:62ch">{{ f.a }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- 3.11 CTA FINAL -->
+<section data-screen-label="CTA final" style="position:relative;overflow:hidden;background:#587352;padding:clamp(80px,10vw,136px) 0;text-align:center">
+  <svg aria-hidden="true" viewBox="0 0 200 320" style="position:absolute;left:-30px;top:-40px;width:clamp(110px,14vw,200px);pointer-events:none;transform:rotate(200deg)"><use href="#fern" fill="none" stroke="#D9BE7C" stroke-width="1.2"></use></svg>
+  <svg aria-hidden="true" viewBox="0 0 200 320" style="position:absolute;right:-30px;bottom:-40px;width:clamp(110px,14vw,200px);pointer-events:none;transform:rotate(20deg)"><use href="#fern" fill="none" stroke="#D9BE7C" stroke-width="1.2"></use></svg>
+  <div style="max-width:820px;margin:0 auto;padding:0 clamp(24px,5vw,48px);position:relative">
+    <h2 style="margin:0;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#FBF6EE;font-size:clamp(34px,5vw,64px);line-height:1.1;text-wrap:balance">Você merece o melhor. Agende seu momento.</h2>
+    <a href="{{ waLink }}" target="_blank" rel="noopener" style="margin-top:40px;display:inline-flex;align-items:center;gap:10px;background:#FBF6EE;color:#2F4A2B;text-decoration:none;border-radius:999px;padding:18px 32px;font-size:15px;font-weight:600;min-height:56px" style-hover="background:#F3DFCB;color:#2F4A2B"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"></use></svg>Agendar no WhatsApp</a>
+  </div>
+</section>
+
+<!-- 3.12 RODAPÉ -->
+<footer id="contato" data-screen-label="Rodapé" style="position:relative;overflow:hidden;background:#FBF6EE;padding:clamp(64px,8vw,104px) 0 32px">
+  <svg aria-hidden="true" viewBox="0 0 120 320" style="position:absolute;left:-20px;bottom:-30px;width:clamp(70px,8vw,120px);pointer-events:none;transform:rotate(12deg);filter:url(#wc)"><use href="#euca" fill="#A9BCA0" stroke="#8FA886" opacity=".7"></use></svg>
+  <svg aria-hidden="true" viewBox="0 0 200 320" style="position:absolute;right:-40px;bottom:-30px;width:clamp(100px,12vw,180px);pointer-events:none;transform:rotate(-14deg);filter:url(#wc)"><use href="#sprig" fill="#8FA886" stroke="#8FA886" opacity=".6"></use></svg>
+  <div style="max-width:1240px;margin:0 auto;padding:0 clamp(24px,5vw,48px);position:relative">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:40px">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <span style="width:52px;height:52px;border-radius:50%;border:1.5px solid #B8923A;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 3px #FBF6EE, inset 0 0 0 4px rgba(184,146,58,.45)"><span style="font-family:'Playfair Display',serif;font-style:italic;font-size:21px;color:#B8923A">RG</span></span>
+          <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:#2F4A2B">RG Massoterapia</span>
+        </div>
+        <p style="margin:0;font-size:14px;font-weight:300;line-height:1.7;max-width:30ch">Um refúgio de cuidado para o seu corpo e a sua mente.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:1.7">
+        <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#587352;font-weight:500">Endereço</span>
+        <span style="font-weight:300">Rua Exemplo, 123 – Centro<br>Bom Jesus da Lapa – BA</span>
+        <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#587352;font-weight:500;margin-top:10px">Horário</span>
+        <span style="font-weight:300">Seg a sex · 8h às 19h<br>Sáb · 8h às 13h</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+        <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#587352;font-weight:500">Contato</span>
+        <a href="https://instagram.com/rg_massoterapiabjl" target="_blank" rel="noopener" style="color:#2F4A2B;text-decoration:none;padding:6px 0">Instagram · @rg_massoterapiabjl</a>
+        <a href="{{ waLink }}" target="_blank" rel="noopener" style="color:#2F4A2B;text-decoration:none;padding:6px 0">WhatsApp · {{ waDisplay }}</a>
+      </div>
+      <div style="min-height:200px;border-radius:20px;border:1px dashed rgba(47,74,43,.35);background:repeating-linear-gradient(135deg,#F3DFCB 0 10px,#F7E8D9 10px 20px);display:flex;align-items:center;justify-content:center;padding:16px">
+        <span style="font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#4A4A48;background:#FBF6EE;padding:6px 10px;border-radius:6px">mapa do Google (iframe)</span>
+      </div>
+    </div>
+    <div style="margin-top:56px;padding-top:22px;border-top:1px solid rgba(184,146,58,.35);font-size:13px;font-weight:300">© RG Massoterapia – Raiane Guimarães</div>
+  </div>
+</footer>
+
+<!-- BOTÃO FLUTUANTE -->
+<a href="{{ waLink }}" target="_blank" rel="noopener" aria-label="Agendar no WhatsApp" style="position:fixed;right:clamp(16px,2.5vw,28px);bottom:clamp(16px,2.5vw,28px);z-index:50;width:60px;height:60px;border-radius:50%;background:#587352;color:#FBF6EE;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px -10px rgba(47,74,43,.6)" style-hover="background:#2F4A2B;color:#FBF6EE">
+  <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"></use></svg>
+</a>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;whatsapp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5577999999999&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contato&quot;},&quot;quizPreview&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;vazio&quot;,&quot;marcado&quot;],&quot;default&quot;:&quot;vazio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Estados&quot;},&quot;massagensLayout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;alternado&quot;,&quot;uniforme&quot;],&quot;default&quot;:&quot;alternado&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Layout&quot;}}">
+class Component extends DCLogic {
+  state = { sel: [], faq: 0, menu: false, w: typeof window !== 'undefined' ? window.innerWidth : 1280, scrolled: false };
+  componentDidMount() {
+    this.onR = () => this.setState({ w: window.innerWidth });
+    this.onS = () => { const s = window.scrollY > 8; if (s !== this.state.scrolled) this.setState({ scrolled: s }); };
+    window.addEventListener('resize', this.onR);
+    window.addEventListener('scroll', this.onS, { passive: true });
+    if (this.props.quizPreview === 'marcado') this.setState({ sel: ['Estresse', 'Insônia', 'Dores musculares'] });
+  }
+  componentDidUpdate(pp) {
+    if (pp.quizPreview !== this.props.quizPreview)
+      this.setState({ sel: this.props.quizPreview === 'marcado' ? ['Estresse', 'Insônia', 'Dores musculares'] : [] });
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onR); window.removeEventListener('scroll', this.onS); }
+  wa(msg) {
+    const n = (this.props.whatsapp ?? '5577999999999').replace(/\D/g, '');
+    return `https://wa.me/${n}?text=${encodeURIComponent(msg)}`;
+  }
+  renderVals() {
+    const { sel, faq, menu, w, scrolled } = this.state;
+    const mobile = w < 860;
+    const staggered = (this.props.massagensLayout ?? 'alternado') === 'alternado';
+    const SYM = ['Dores musculares', 'Insônia', 'Estresse', 'Cansaço', 'Ansiedade', 'Má postura', 'Tensão', 'Dores de cabeça'];
+    const toggle = s => this.setState(st => ({ sel: st.sel.includes(s) ? st.sel.filter(x => x !== s) : [...st.sel, s] }));
+    const chips = SYM.map(label => {
+      const on = sel.includes(label);
+      return { label, on, toggle: () => toggle(label), check: on ? '✓' : '',
+        bg: on ? '#587352' : 'transparent', fg: on ? '#FBF6EE' : '#2F4A2B', border: on ? '#587352' : 'rgba(47,74,43,.35)',
+        dot: on ? '#FBF6EE' : 'transparent', dotBorder: on ? '#FBF6EE' : 'rgba(47,74,43,.45)' };
+    });
+    const ordered = SYM.filter(s => sel.includes(s));
+    const M = [
+      ['Massagem modeladora', 'Manobras firmes que ajudam a contornar a silhueta.', '50 min', 'drenagem%20linfatica%2001.jpeg'],
+      ['Drenagem linfática', 'Movimentos suaves que reduzem o inchaço e a sensação de peso.', '60 min', 'drenagem%20linfatica%20gravidez.jpeg'],
+      ['Massagem terapêutica', 'Trabalha dores e rigidez com foco na liberação muscular.', '60 min', 'WhatsApp%20Image%202026-09-25%20at%2013.54.43%20(1).jpeg'],
+      ['Liberação miofascial', 'Ajusta a tensão e melhora mobilidade e conforto.', '50 min', ''],
+      ['Ventosaterapia', 'Solta a musculatura e favorece o bem-estar mental.', '40 min', 'ventosaterapia.jpeg'],
+    ];
+    const ratios = ['4/5', '1/1', '4/5', '1/1', '4/5'];
+    const radii = ['999px 999px 24px 24px', '24px', '24px', '24px', '999px 999px 24px 24px'];
+    // 3 colunas: 3 em cima + 2 centralizados embaixo; 2 colunas: 2 + 2 + 1 centralizado
+    const cols = w >= 1024 ? 3 : w >= 680 ? 2 : 1;
+    const orphanStart = M.length % cols ? M.length - (M.length % cols) : M.length;
+    const massagens = M.map(([nome, desc, dur, foto], i) => ({
+      nome, desc, dur, slot: 'massagem-' + (i + 1), ph: 'Foto: ' + nome.toLowerCase(),
+      src: foto ? 'src/img/images/' + foto : '',
+      ratio: staggered ? ratios[i] : '4/3', radius: staggered ? radii[i] : '24px',
+      col: i >= orphanStart ? `${(cols - (M.length % cols)) + 1 + (i - orphanStart) * 2} / span 2` : 'span 2',
+      offset: staggered && ((cols === 3 && i % 3 === 1) || (cols === 2 && i % 2 === 1 && i < orphanStart)) ? '64px' : '0px',
+      link: this.wa(`Olá, Raiane! Quero agendar uma massagem ${nome.toLowerCase()}.`),
+    }));
+    const passos = [
+      { n: '01', t: 'Você chama no WhatsApp', icon: 'M12 4a8 8 0 0 0-6.9 12L4 20l4.1-1.1A8 8 0 1 0 12 4z' },
+      { n: '02', t: 'Conversamos sobre suas queixas e objetivos', icon: 'M4 6h11v7H9l-3 3v-3H4zM15 9h5v7h-2v3l-3-3h-4v-3' },
+      { n: '03', t: 'Sessão personalizada para você', icon: 'M5 19C5 11 10 5 19 5c0 9-6 14-14 14zM5 19l8-8' },
+      { n: '04', t: 'Orientações para continuar o cuidado em casa', icon: 'M4 11l8-6 8 6M6 10v9h12v-9M10 19v-5h4v5' },
+    ];
+    const depoimentos = [
+      { q: 'Saí da sessão leve, como se tivesse tirado um peso das costas. O ambiente é um abraço.', nome: 'Cliente 1', m: 'Massagem relaxante', pad: '0px' },
+      { q: 'A Raiane escuta de verdade. Minhas dores no ombro melhoraram muito desde que comecei.', nome: 'Cliente 2', m: 'Terapêutica', pad: mobile ? '0px' : '48px' },
+      { q: 'Comecei a modeladora e me senti muito mais disposta. Virou meu momento da semana.', nome: 'Cliente 3', m: 'Massagem modeladora', pad: '0px' },
+    ];
+    const F = [
+      ['Quanto tempo dura cada sessão?', 'Entre 40 e 70 minutos, dependendo da técnica. Chegue com uns minutinhos de antecedência para começar sem pressa.'],
+      ['A ventosaterapia deixa marcas?', 'Pode deixar marcas arroxeadas temporárias, que costumam sumir em poucos dias. Antes da sessão, eu explico tudo e ajustamos a intensidade.'],
+      ['Que roupa devo usar?', 'Venha com uma roupa confortável. No espaço você tem toalhas e privacidade para se trocar.'],
+      ['Gestantes podem fazer massagem?', 'Sim, a partir do segundo trimestre e com liberação médica. A sessão é adaptada para o conforto e a segurança da mamãe.'],
+      ['Existem contraindicações?', 'Em casos de febre, inflamações agudas, trombose ou lesões na pele, é melhor aguardar. Na dúvida, conversamos antes.'],
+      ['Quais as formas de pagamento?', 'Pix, dinheiro e cartão de débito ou crédito.'],
+    ];
+    const faqs = F.map(([q, a], i) => ({ q, a, open: faq === i, rot: faq === i ? '45deg' : '0deg', toggle: () => this.setState({ faq: faq === i ? -1 : i }) }));
+    const num = (this.props.whatsapp ?? '5577999999999').replace(/\D/g, '');
+    const waDisplay = num.length >= 12 ? `(${num.slice(2, 4)}) ${num.slice(4, num.length - 4)}-${num.slice(-4)}` : num;
+    return {
+      isMobile: mobile, isDesktop: !mobile, menuOpen: menu, menuVisible: mobile && menu,
+      toggleMenu: () => this.setState({ menu: !menu }), closeMenu: () => this.setState({ menu: false }),
+      headerShadow: scrolled ? '0 8px 24px -18px rgba(47,74,43,.45)' : 'none',
+      headerCta: w < 420 ? 'Agendar' : 'Agendar no WhatsApp',
+      waLink: this.wa('Olá, Raiane! Gostaria de agendar uma sessão.'),
+      quizLink: this.wa(`Olá, Raiane! Fiz o teste no site e sinto: ${ordered.join(', ').toLowerCase()}. Pode me ajudar?`),
+      waDisplay, chips, hasSel: sel.length > 0, noSel: sel.length === 0,
+      selSummary: sel.length === 1 ? '1 sintoma marcado' : `${sel.length} sintomas marcados`,
+      massagens, massagensCols: `repeat(${cols * 2}, minmax(0, 1fr))`, passos, depoimentos, faqs,
+    };
+  }
+}
+</script>
+</body>
+</html>

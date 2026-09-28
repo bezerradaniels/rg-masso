@@ -1,0 +1,5 @@
+{
+  // O index.html usa bindings {{ }} dentro de style="" (runtime support.js),
+  // que o validador de CSS do VS Code não entende e marca como erro.
+  "html.validate.styles": false
+}

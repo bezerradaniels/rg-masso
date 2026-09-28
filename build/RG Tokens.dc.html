@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap">
+<style>body{margin:0;background:#FBF6EE;color:#4A4A48;font-family:Montserrat,sans-serif}*{box-sizing:border-box}a{color:#2F4A2B}a:hover{color:#587352}</style>
+</helmet>
+<div style="max-width:1100px;margin:0 auto;padding:56px clamp(20px,5vw,48px) 80px;display:flex;flex-direction:column;gap:56px">
+  <header>
+    <p style="margin:0 0 10px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#587352;font-weight:500">RG Massoterapia · Tailwind v4</p>
+    <h1 style="margin:0;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#2F4A2B;font-size:52px">Tokens &amp; @theme</h1>
+  </header>
+  <section style="display:flex;flex-direction:column;gap:20px">
+    <h2 style="margin:0;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#2F4A2B;font-size:30px">Cores</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px">
+      <sc-for list="{{ cores }}" as="c" hint-placeholder-count="8">
+        <div style="border-radius:18px;overflow:hidden;border:1px solid rgba(47,74,43,.15);background:#fff">
+          <div style="height:96px;background:{{ c.hex }}"></div>
+          <div style="padding:12px 14px;display:flex;flex-direction:column;gap:3px"><strong style="font-size:14px;color:#2F4A2B;font-weight:600">{{ c.n }}</strong><span style="font-family:ui-monospace,Menlo,monospace;font-size:12px">{{ c.hex }}</span><span style="font-size:12px;font-weight:300;line-height:1.45">{{ c.u }}</span></div>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin:0;font-size:14px;font-weight:300;line-height:1.6;max-width:70ch"><strong style="font-weight:500">Contraste:</strong> texto creme sobre <code>sage</code> (#6E8A68) dá 3,6:1, abaixo do AA. Por isso adicionei <code>sage-700</code> (#587352, 4,9:1) para botões, pílulas e a faixa de CTA. <code>sage</code> fica para ícones e folhas. Dourado nunca é usado em texto pequeno.</p>
+  </section>
+  <section style="display:flex;flex-direction:column;gap:20px">
+    <h2 style="margin:0;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#2F4A2B;font-size:30px">Tipografia</h2>
+    <div style="display:flex;flex-direction:column;gap:18px;border-top:1px solid rgba(47,74,43,.15);padding-top:18px">
+      <div style="font-family:'Playfair Display',serif;font-style:italic;color:#2F4A2B;font-size:64px;line-height:1.05">Seu corpo &amp; sua autoestima</div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:12px">display · Playfair Display Italic 400 · clamp(44px, 6.4vw, 84px) / 1.02 · -0.02em</div>
+      <div style="font-family:'Playfair Display',serif;font-style:italic;color:#2F4A2B;font-size:40px">Você tem algum desses sintomas?</div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:12px">h2 · clamp(34px, 4.6vw, 56px) / 1.1 — h3 · 28px / 1.15</div>
+      <div style="font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#587352;font-weight:500">Conheça a técnica que alivia</div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:12px">eyebrow · Montserrat 500 · 12px · caixa alta · 0.22em</div>
+      <div style="font-size:17px;font-weight:300;line-height:1.7;max-width:60ch">Massagens relaxantes, terapêuticas e modeladoras em um espaço pensado para você desacelerar.</div>
+      <div style="font-family:ui-monospace,Menlo,monospace;font-size:12px">body · Montserrat 300 · 15–18px / 1.7 · max 60–70ch</div>
+    </div>
+  </section>
+  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <h2 style="margin:0;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#2F4A2B;font-size:30px">Raios</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end">
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:12px"><div style="width:72px;height:72px;background:#F3DFCB;border-radius:20px"></div>md · 20px</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:12px"><div style="width:72px;height:72px;background:#F3DFCB;border-radius:28px"></div>lg · 28px</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:12px"><div style="width:96px;height:40px;background:#587352;border-radius:999px"></div>pill · 999px</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:12px"><div style="width:72px;height:100px;background:#F3DFCB;border-radius:50% 50% 20px 20px / 35.7% 35.7% 20px 20px"></div>arch</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <h2 style="margin:0;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#2F4A2B;font-size:30px">Espaçamento</h2>
+      <div style="font-size:14px;font-weight:300;line-height:1.8">Base 4px (padrão Tailwind). Seções: <code>clamp(72px, 9vw, 128px)</code> vertical. Margem lateral: <code>clamp(20px, 5vw, 48px)</code>. Container: 1240px. Alvo de toque mínimo: 48px.</div>
+    </div>
+  </section>
+  <section style="display:flex;flex-direction:column;gap:14px">
+    <h2 style="margin:0;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;color:#2F4A2B;font-size:30px">app.css</h2>
+    <pre style="margin:0;background:#2F4A2B;color:#FBF6EE;border-radius:20px;padding:28px;font-family:ui-monospace,Menlo,monospace;font-size:13px;line-height:1.65;overflow:auto;white-space:pre">{{ css }}</pre>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      cores: [
+        { n: 'cream', hex: '#FBF6EE', u: 'Fundo principal' },
+        { n: 'nude', hex: '#F3DFCB', u: 'Seções alternadas, pacote' },
+        { n: 'sage', hex: '#6E8A68', u: 'Ícones, folhas' },
+        { n: 'sage-700', hex: '#587352', u: 'Botões, pílulas, CTA (texto claro AA)' },
+        { n: 'sage-300', hex: '#A9BCA0', u: 'Folhas aquareladas' },
+        { n: 'forest', hex: '#2F4A2B', u: 'Títulos, links, hover' },
+        { n: 'gold', hex: '#B8923A', u: 'Monograma, traços, divisores' },
+        { n: 'gold-300', hex: '#D9BE7C', u: 'Traço sobre fundo sage' },
+        { n: 'ink', hex: '#4A4A48', u: 'Texto corrido' },
+      ],
+      css: `@import "tailwindcss";
+
+@theme {
+  --color-cream: #FBF6EE;
+  --color-nude: #F3DFCB;
+  --color-sage: #6E8A68;
+  --color-sage-300: #A9BCA0;
+  --color-sage-700: #587352;
+  --color-forest: #2F4A2B;
+  --color-gold: #B8923A;
+  --color-gold-300: #D9BE7C;
+  --color-ink: #4A4A48;
+
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Montserrat", system-ui, sans-serif;
+
+  --text-display: clamp(2.75rem, 6.4vw, 5.25rem);
+  --text-display--line-height: 1.02;
+  --text-h2: clamp(2.125rem, 4.6vw, 3.5rem);
+  --text-h2--line-height: 1.1;
+  --text-eyebrow: 0.75rem;
+  --tracking-eyebrow: 0.22em;
+
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-arch: 50% 50% 24px 24px / 35.7% 35.7% 24px 24px;
+
+  --spacing-section: clamp(4.5rem, 9vw, 8rem);
+  --spacing-gutter: clamp(1.25rem, 5vw, 3rem);
+  --container-site: 1240px;
+
+  --shadow-header: 0 8px 24px -18px rgb(47 74 43 / .45);
+}`,
+    };
+  }
+}
+</script>
+</body>
+</html>
